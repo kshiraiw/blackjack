@@ -1,3 +1,16 @@
+html { 
+  background: url("../img/poker-table.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.app {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .card {
   float: left;
   border: solid 1px black;
@@ -18,4 +31,98 @@
 
 .hand {
   overflow: auto;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.message{
+  position: absolute;
+  z-index: 100;
+  background-color: yellow;
+}
+
+.hit-button {
+  display:inline-block;
+  border-style:solid;
+  margin-right: 10px;
+  /*border-color:#bbb #888 #666 #aaa;*/
+  border-width:3px 4px 4px 3px;
+  border-radius: 10px;
+  width:9em;
+  height:2em;
+  background:yellow;
+  color:blue;
+  line-height:2;
+  text-align:center;
+  text-decoration:none;
+  font-weight:900;
+}
+
+.stand-button {
+  display:inline-block;
+  border-style:solid;
+  margin-left: 10px;
+  /*border-color:#bbb #888 #666 #aaa;*/
+  border-width:3px 4px 4px 3px;
+  border-radius: 10px;
+  width:9em;
+  height:2em;
+  background:yellow;
+  color:blue;
+  line-height:2;
+  text-align:center;
+  text-decoration:none;
+  font-weight:900;
+}
+
+.new-game-button {
+  display:inline-block;
+  border-style:solid;
+  margin-left: 10px;
+  /*border-color:#bbb #888 #666 #aaa;*/
+  border-width:3px 4px 4px 3px;
+  border-radius: 10px;
+  width:15em;
+  height:2em;
+  background:yellow;
+  color:blue;
+  line-height:1.25;
+  text-align:center;
+  text-decoration:none;
+  font-weight:900;
+}
+
+.button {
+  border-top: 1px solid #97b2f7;
+  background: #597863;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0b51b3), to(#597863));
+  background: -webkit-linear-gradient(top, #0b51b3, #597863);
+  background: -moz-linear-gradient(top, #0b51b3, #597863);
+  background: -ms-linear-gradient(top, #0b51b3, #597863);
+  background: -o-linear-gradient(top, #0b51b3, #597863);
+  padding: 15px 30px;
+  -webkit-border-radius: 34px;
+  -moz-border-radius: 34px;
+  border-radius: 34px;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: white;
+  font-size: 20px;
+  font-family: Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+  width: 100px;
+}
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+}
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
 }

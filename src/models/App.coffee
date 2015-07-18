@@ -10,20 +10,15 @@ class window.App extends Backbone.Model
     @set 'dealerHand', @get('deck').dealDealer()
     @trigger 'newGameStart'
     @get('playerHand').on 'busted', => 
-      @trigger 'finalCard'
+      @trigger 'finalCard', 'Busted!! You Lose!!'
       @get('dealerHand').at(0).flip()
-      alert 'you busted'
-      @newGame()
     @get('playerHand').on 'dealersTurn', => @get('dealerHand').finishGame()
     @get('dealerHand').on 'busted', => 
-      @trigger 'finalCard'
-      alert 'dealer busted, you win'
-      @newGame()
+      @trigger 'finalCard', 'Dealer has Busted! You Win!!'
     @get('dealerHand').on 'gameOver', => 
-      console.log('something here')
       if @get('playerHand').scores() > @get('dealerHand').scores()
-        alert 'you win'
-        @newGame()
+        @trigger 'finalCard', 'You Win!!!'
       else if @get('playerHand').scores() < @get('dealerHand').scores() && @get('dealerHand').scores() < 22
-        alert 'you lose'
-        @newGame()  
+        @trigger 'finalCard', 'You Lose :(!'
+      else 
+        @trigger 'finalCard', 'Push!!'

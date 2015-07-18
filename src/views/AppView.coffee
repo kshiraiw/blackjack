@@ -1,6 +1,7 @@
 class window.AppView extends Backbone.View
+  className: 'app'
   template: _.template '
-    <button class="hit-button">Hit</button> <button class="stand-button">Stand</button>
+    <div class="button hit-button">Hit</div> <div class="button stand-button">Stand</div>
     <div class="player-hand-container"></div>
     <div class="dealer-hand-container"></div>
   '
@@ -10,9 +11,14 @@ class window.AppView extends Backbone.View
     'click .stand-button': -> 
       console.log('standing')
       @model.get('playerHand').stand()
+    'click .new-game-button': -> @model.newGame()
 
   initialize: ->
-    @model.on 'finalCard newGameStart', => @render()
+    @model.on 'newGameStart', => @render()
+    @model.on 'finalCard', (message) => 
+      @$el.prepend("<div class='message'>#{message}</div><div class='button new-game-button'>Play Again</div>")
+      @$('.hit-button').css('display', 'none')
+      @$('.stand-button').css('display', 'none')
     @render()
 
   render: ->
