@@ -8,8 +8,12 @@
 }
 
 .covered {
-  background-image: url('../img/card-back.png');
-  /*display: none;*/
+  background: url('../img/card-back.png');
+}
+
+.covered img {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .hand {
