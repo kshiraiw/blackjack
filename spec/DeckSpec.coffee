@@ -27,3 +27,4 @@ describe 'deck', ->
     it 'should hide one card from view', ->
       dealer = deck.dealDealer()
       assert.strictEqual dealer.first().get('revealed'), false
+
