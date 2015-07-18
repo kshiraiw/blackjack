@@ -1,8 +1,11 @@
 class window.App extends Backbone.Model
   initialize: ->
+    @set 'deck', deck = new Deck()
+    # deckLength = @get('deck').get('deckLength')
     @newGame()
   newGame: -> 
-    @set 'deck', deck = new Deck()
+    if @get('deck').length < 35
+      @set 'deck', deck = new Deck()
     @set 'playerHand', @get('deck').dealPlayer()
     @set 'dealerHand', @get('deck').dealDealer()
     @trigger 'newGameStart'

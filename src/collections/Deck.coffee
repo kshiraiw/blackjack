@@ -2,10 +2,12 @@ class window.Deck extends Backbone.Collection
   model: Card
 
   initialize: ->
-    @add _([0...52]).shuffle().map (card) ->
+    numberOfDecks = 2
+    # @set 'deckLength', numberOfDecks * 52
+    @add _([0...52*numberOfDecks]).shuffle().map (card) ->
       new Card
         rank: card % 13
-        suit: Math.floor(card / 13)
+        suit: card % 4
 
   dealPlayer: -> new Hand [@pop(), @pop()], @
 
