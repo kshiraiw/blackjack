@@ -5,6 +5,7 @@ class window.HandView extends Backbone.View
 
   initialize: ->
     @collection.on 'add remove change', => @render()
+    # @collection.on 'gameOver', => @trigger 'gameOver'
     @render()
 
   render: ->
@@ -12,5 +13,6 @@ class window.HandView extends Backbone.View
     @$el.html @template @collection
     @$el.append @collection.map (card) ->
       new CardView(model: card).$el
-    @$('.score').text @collection.scores()[0]
+    @$('.score').text @collection.scores()
+    #we need logic to check proper score for an ace
 
